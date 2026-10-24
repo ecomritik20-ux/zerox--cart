@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZeroxCart | Smart fixes for everyday problems</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16131f;--panel:#201c2e;--line:#322c47;--text:#f1ecf7;--mute:#a79fba;--gold:#e0c89a;--pink:#ff4d8d;--cyan:#3ee0ff;--vio:#8b5cff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 Manrope,system-ui,sans-serif}
+h1,h2,h3,.logo{font-family:Syne,system-ui,sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.ann{background:linear-gradient(90deg,var(--pink),var(--vio),var(--cyan));color:#fff;text-align:center;font-size:13px;font-weight:600;padding:8px 12px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:12px}
+.logo{font-size:24px;font-weight:800}.logo b{color:var(--gold)}
+nav{display:flex;gap:22px;color:var(--mute);font-size:14px}
+nav a:hover,nav a.on{color:var(--text)}
+.cartb{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;white-space:nowrap}
+.btn{display:inline-block;border:0;border-radius:12px;padding:14px 26px;font:700 16px Manrope;color:#fff;background:linear-gradient(90deg,var(--pink),var(--vio));cursor:pointer;text-align:center}
+.btn.full{width:100%;margin-top:14px}
+.btn.alt{background:none;border:1px solid var(--gold);color:var(--gold)}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--text)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:44px 0 50px}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;font-weight:800}
+.hero p{color:var(--mute);max-width:46ch;margin:18px 0 26px}
+.orb{aspect-ratio:1;border-radius:36% 64% 58% 42%/45% 40% 60% 55%;background:radial-gradient(circle at 30% 30%,var(--cyan),var(--vio) 45%,var(--pink) 80%);box-shadow:0 30px 80px #0008}
+section{padding:30px 0}
+h2{font-size:28px;margin-bottom:6px}.sub{color:var(--mute);margin-bottom:20px}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center;font-weight:600}
+.cat small{display:block;color:var(--mute);font-weight:400;font-size:12px}
+.cat:nth-child(odd){border-top:3px solid var(--pink)}.cat:nth-child(even){border-top:3px solid var(--vio)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:block}
+.card:hover{border-color:var(--vio)}
+.img{aspect-ratio:1;background:radial-gradient(circle at 30% 30%,var(--c1),var(--c2) 60%,#2b2540);display:grid;place-items:center;color:#fff;font:700 13px Syne;position:relative}
+.tag{position:absolute;top:10px;left:10px;background:var(--pink);color:#fff;font-size:11px;padding:3px 10px;border-radius:999px}
+.info{padding:14px}.info h3{font-size:15px;line-height:1.3}.info p{color:var(--mute);font-size:13px;margin:4px 0 10px}
+.price{display:flex;align-items:baseline;gap:8px;font-weight:700}.price s{color:var(--mute);font-weight:400;font-size:13px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;text-align:center;margin-top:20px}
+.trust b{display:block;color:var(--gold)}.trust span{color:var(--mute);font-size:13px}
+.crumb{color:var(--mute);font-size:13px;padding:8px 0 14px}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding-bottom:30px}
+.big{aspect-ratio:1;border-radius:20px;background:radial-gradient(circle at 30% 30%,var(--c1),var(--c2) 55%,#2b2540);display:grid;place-items:center;font:700 14px Syne;position:relative}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.thumbs div{aspect-ratio:1;border-radius:12px;background:var(--panel);border:1px solid var(--line)}.thumbs div:first-child{border-color:var(--gold)}
+.pd h1{font-size:clamp(26px,4vw,38px);line-height:1.15;font-weight:800;margin:4px 0 8px}
+.rate{color:var(--gold);font-size:14px}.rate span{color:var(--mute)}
+.pp{display:flex;align-items:baseline;gap:12px;margin:14px 0 6px}.pp b{font:800 34px Syne}.pp s{color:var(--mute)}
+.save{background:#2a1d3d;color:var(--pink);font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px}
+ul.ben{list-style:none;padding:0;display:grid;gap:8px;margin:14px 0 20px}
+ul.ben li{padding-left:26px;position:relative}ul.ben li:before{content:"\2713";position:absolute;left:0;color:var(--cyan);font-weight:700}
+.buy{display:flex;gap:10px;margin-bottom:12px}
+.q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:12px}
+.q button{background:none;border:0;color:var(--text);font-size:20px;width:38px;height:100%;min-height:34px;cursor:pointer}
+.q span{min-width:24px;text-align:center;font-weight:600}
+.buy .btn{flex:1}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.badges div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:12px;color:var(--mute)}
+.badges b{display:block;color:var(--text);font-size:13px}
+details{border-top:1px solid var(--line);padding:14px 0}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font-weight:600;cursor:pointer}details p{color:var(--mute);margin-top:8px}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.r{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14px}.r small{color:var(--mute)}
+.ck{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:start}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+.box h2{font-size:18px;margin-bottom:12px}
+.item{display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}
+.item .ph{width:60px;height:60px;border-radius:12px;background:radial-gradient(circle at 30% 30%,var(--c1),var(--c2))}
+.item b{display:block;font-size:15px;line-height:1.3}.item small{color:var(--mute)}
+.rm{background:none;border:0;color:var(--mute);font-size:12px;cursor:pointer;margin-left:10px;text-decoration:underline}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:12px}.f .full{grid-column:1/-1}
+label{display:block;font-size:13px;color:var(--mute);margin-bottom:4px}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--text);font:inherit}
+input:focus,textarea:focus{border-color:var(--vio);outline:none}input.bad,textarea.bad{border-color:var(--pink)}
+.pay{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer}
+.pay input{width:auto;accent-color:var(--pink)}.pay:has(input:checked){border-color:var(--pink);background:#2a1d3d}.pay small{display:block;color:var(--mute)}
+.row{display:flex;justify-content:space-between;padding:6px 0;color:var(--mute)}
+.row.t{color:var(--text);font:800 20px Syne;border-top:1px solid var(--line);margin-top:8px;padding-top:14px}.free{color:var(--cyan);font-weight:600}
+.err{color:var(--pink);font-size:13px;margin-top:10px}
+.center{text-align:center;padding:50px 10px}.center h1{font-size:30px;margin-bottom:10px}.center p{color:var(--mute);margin-bottom:20px}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.v{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}.v h3{font-size:17px;margin-bottom:6px}.v p{color:var(--mute);font-size:14px}
+.v:nth-child(1){border-top:3px solid var(--pink)}.v:nth-child(2){border-top:3px solid var(--vio)}.v:nth-child(3){border-top:3px solid var(--cyan)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.info2 p{margin-bottom:14px}.info2 b{display:block;color:var(--gold);font-size:14px}.info2 span{color:var(--mute)}
+.pg h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:20px 0 14px;max-width:16ch}.pg .lead{color:var(--mute);max-width:56ch;margin-bottom:10px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--mute);font-size:13px}
+footer div{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:760px){nav{display:none}.hero,.pd,.ck,.contact,.vals,.rev,.f{grid-template-columns:1fr}.orb{max-width:240px;margin:0 auto}
+.cats{grid-template-columns:repeat(2,1fr)}.grid,.trust{grid-template-columns:repeat(2,1fr)}.side{order:-1}
+.mnav{display:flex!important}}
+.mnav{display:none;gap:18px;color:var(--mute);font-size:14px;overflow-x:auto;padding-bottom:10px}
+</style>
+</head>
+<body>
+<div class="ann">Free shipping on every order · 7-day returns · Cash on delivery</div>
+<div class="wrap">
+<header>
+<a class="logo" href="#/">Zerox<b>Cart</b></a>
+<nav id="nav"><a href="#/" data-r="home">Home</a><a href="#/shop" data-r="shop">Shop</a><a href="#/about" data-r="about">About</a><a href="#/contact" data-r="contact">Contact</a></nav>
+<a class="cartb" href="#/cart">Cart (<span id="cc">0</span>)</a>
+</header>
+<div class="mnav"><a href="#/">Home</a><a href="#/shop">Shop</a><a href="#/about">About</a><a href="#/contact">Contact</a></div>
+<main id="app"></main>
+<footer><span>© 2026 ZeroxCart</span><div><a href="#/shop">Shop</a><a href="#/about">About</a><a href="#/contact">Contact</a><a href="#/contact">FAQ</a></div></footer>
+</div>
+<script>
+var P=[
+{id:"cable",n:"Magnetic Cable Organizer",t:"No more tangled wires.",p:14,o:24,tag:"Best seller",c1:"#3ee0ff",c2:"#8b5cff",b:["Strong magnet holds 5 cables at once","No more tangled or fallen wires","Sticks on any flat surface, leaves no mark"],cat:"Gadgets"},
+{id:"blender",n:"Portable Mini Blender",t:"Fresh shakes anywhere.",p:29,o:45,tag:"New",c1:"#ff4d8d",c2:"#8b5cff",b:["USB rechargeable, no wires needed","Blends fruit in under 30 seconds","Small enough for gym bag or desk"],cat:"Kitchen"},
+{id:"carseat",n:"Car Seat Gap Organizer",t:"Stops things falling in the gap.",p:17,o:28,tag:"",c1:"#e0c89a",c2:"#ff4d8d",b:["Fits most car seats","Extra pocket for phone and cards","Easy to install in seconds"],cat:"Car"},
+{id:"posture",n:"Posture Corrector Band",t:"Sit straight, feel better.",p:19,o:32,tag:"Selling fast",c1:"#3ee0ff",c2:"#ff4d8d",b:["Adjustable for all sizes","Soft, breathable fabric","Wear under clothes comfortably"],cat:"Health"}
+];
+var cart=[],app=document.getElementById("app");
+function $(i){return document.getElementById(i)}
+function pr(id){return P.filter(function(x){return x.id==id})[0]}
+function sub(){return cart.reduce(function(s,i){return s+pr(i.id).p*i.q},0)}
+function cnt(){$("cc").textContent=cart.reduce(function(s,i){return s+i.q},0)}
+function add(id,q,go){var f=cart.filter(function(i){return i.id==id})[0];f?f.q+=q:cart.push({id:id,q:q});cnt();if(go)location.hash="#/cart";else{var b=$("ab");if(b){b.textContent="Added to cart";setTimeout(function(){b.textContent="Add to cart"},1500)}}}
+function card(x){return '<a class="card" href="#/product/'+x.id+'"><div class="img" style="--c1:'+x.c1+';--c2:'+x.c2+'">'+(x.tag?'<span class="tag">'+x.tag+'</span>':'')+'Product photo</div><div class="info"><h3>'+x.n+'</h3><p>'+x.t+'</p><div class="price">$'+x.p+'<s>$'+x.o+'</s></div></div></a>'}
+var trust='<div class="trust"><div><b>Free shipping</b><span>On every order, no minimum</span></div><div><b>7-day returns</b><span>Easy and hassle free</span></div><div><b>Cash on delivery</b><span>Pay when it arrives</span></div><div><b>Real support</b><span>Replies within 24 hours</span></div></div>';
+function home(){return '<div class="hero"><div><h1>Smart fixes for everyday problems.</h1><p>ZeroxCart finds the products people are talking about right now, checks what works, and ships it to your door.</p><a class="btn" href="#/shop">Shop trending</a> <a class="btn ghost" href="#/about">About us</a></div><div class="orb"></div></div><section><h2>Shop by problem</h2><p class="sub">Start with what is bothering you.</p><div class="cats"><a class="cat" href="#/shop">Home<small>Clutter, cleaning</small></a><a class="cat" href="#/shop">Kitchen<small>Faster cooking</small></a><a class="cat" href="#/shop">Car<small>Clean, organised</small></a><a class="cat" href="#/shop">Health<small>Pain, posture</small></a><a class="cat" href="#/shop">Gadgets<small>Charge, carry</small></a></div></section><section><h2>Trending now</h2><p class="sub">The most ordered products this week.</p><div class="grid">'+P.map(card).join("")+'</div></section>'+trust}
+function shop(){return '<section><h2>All products</h2><p class="sub">Everything trending right now.</p><div class="grid">'+P.map(card).join("")+'</div></section>'+trust}
+var qn=1;
+function product(id){var x=pr(id);if(!x)return nf();qn=1;var sv=Math.round((1-x.p/x.o)*100);
+return '<div class="crumb"><a href="#/">Home</a> / <a href="#/shop">Shop</a> / '+x.n+'</div><div class="pd"><div><div class="big" style="--c1:'+x.c1+';--c2:'+x.c2+'">'+(x.tag?'<span class="tag">'+x.tag+'</span>':'')+'Product photo</div><div class="thumbs"><div></div><div></div><div></div><div></div></div></div><div><div class="rate">★★★★★ <span>4.8 (1,240 reviews)</span></div><h1>'+x.n+'</h1><div class="pp"><b>$'+x.p+'</b><s>$'+x.o+'</s><span class="save">Save '+sv+'%</span></div><p style="color:var(--mute)">'+x.t+'</p><ul class="ben">'+x.b.map(function(b){return "<li>"+b+"</li>"}).join("")+'</ul><div class="buy"><div class="q"><button aria-label="Decrease" onclick="qc(-1)">−</button><span id="qn">1</span><button aria-label="Increase" onclick="qc(1)">+</button></div><button class="btn" id="ab" onclick="add(\''+x.id+'\',qn)">Add to cart</button></div><button class="btn alt" style="width:100%" onclick="add(\''+x.id+'\',qn,1)">Buy now, pay on delivery</button><div class="badges"><div><b>Free shipping</b>On every order</div><div><b>Cash on delivery</b>Pay at your door</div><div><b>7-day returns</b>Easy and simple</div></div><details open><summary>Description</summary><p>Add your own product details here.</p></details><details><summary>Shipping and delivery</summary><p>Shipping is free on all orders. Delivery usually takes 4 to 7 days.</p></details><details><summary>Returns and cash on delivery</summary><p>Return within 7 days of delivery. Cash on delivery is available at checkout.</p></details></div></div><section><h2>What customers say</h2><div class="rev"><div class="r"><div class="rate">★★★★★</div>Works exactly as shown. Very happy.<br><small>Aman, verified buyer</small></div><div class="r"><div class="rate">★★★★★</div>Fast delivery and COD was easy.<br><small>Neha, verified buyer</small></div><div class="r"><div class="rate">★★★★☆</div>Good quality for the price.<br><small>Rohit, verified buyer</small></div></div></section><section><h2>You may also like</h2><div class="grid">'+P.filter(function(y){return y.id!=id}).slice(0,4).map(card).join("")+'</div></section>'}
+function qc(d){qn=Math.max(1,qn+d);$("qn").textContent=qn}
+function cartv(){if(!cart.length)return '<div class="center"><h1>Your cart is empty</h1><p>Add a product to continue.</p><a class="btn" href="#/shop">Start shopping</a></div>';
+return '<h1 style="font-size:30px;margin:10px 0 18px">Your cart</h1><div class="ck"><div><div class="box"><h2>Items</h2><div id="items"></div></div><div class="box"><h2>Delivery details</h2><div class="f"><div><label for="nm">Full name</label><input id="nm" autocomplete="name"></div><div><label for="ph">Phone number</label><input id="ph" type="tel" autocomplete="tel"></div><div class="full"><label for="ad">Full address</label><textarea id="ad" rows="2" autocomplete="street-address"></textarea></div><div><label for="ct">City</label><input id="ct" autocomplete="address-level2"></div><div><label for="pc">Pincode</label><input id="pc" inputmode="numeric" autocomplete="postal-code"></div></div></div><div class="box"><h2>Payment</h2><label class="pay"><input type="radio" name="p" value="Cash on delivery" checked><span><b>Cash on delivery</b><small>Pay when your order arrives</small></span></label><label class="pay"><input type="radio" name="p" value="Online payment"><span><b>Pay online</b><small>Cards, UPI and wallets</small></span></label></div></div><div class="side"><div class="box"><h2>Order summary</h2><div class="row"><span>Subtotal</span><span id="st"></span></div><div class="row"><span>Shipping</span><span class="free">Free</span></div><div class="row t"><span>Total</span><span id="tt"></span></div><button class="btn full" onclick="place()">Place order</button><p class="err" id="er"></p><p style="color:var(--mute);font-size:12px;text-align:center;margin-top:8px">7-day returns on every order</p></div></div></div>'}
+function items(){if(!$("items"))return;$("items").innerHTML=cart.map(function(i,k){var x=pr(i.id);return '<div class="item"><div class="ph" style="--c1:'+x.c1+';--c2:'+x.c2+'"></div><div><b>'+x.n+'</b><small>$'+x.p+' each</small><br><span class="q" style="margin-top:6px"><button aria-label="Decrease" onclick="cq('+k+',-1)">−</button><span>'+i.q+'</span><button aria-label="Increase" onclick="cq('+k+',1)">+</button></span><button class="rm" onclick="rmv('+k+')">Remove</button></div><b>$'+x.p*i.q+'</b></div>'}).join("");$("st").textContent=$("tt").textContent="$"+sub()}
+function cq(k,d){cart[k].q=Math.max(1,cart[k].q+d);cnt();items()}
+function rmv(k){cart.splice(k,1);cnt();route()}
+var ord=0;
+function place(){var ok=true;["nm","ph","ad","ct","pc"].forEach(function(i){var e=$(i),bad=!e.value.trim();e.classList.toggle("bad",bad);if(bad)ok=false});
+if(!ok){$("er").textContent="Please fill in all delivery details.";return}
+ord=Math.floor(10000+Math.random()*89999);var m=document.querySelector("input[name=p]:checked").value;cart=[];cnt();
+app.innerHTML='<div class="center"><h1>Order placed</h1><p>Thank you. Your order number is ZC'+ord+'. Payment: '+m+'. We will call you to confirm before dispatch.</p><a class="btn" href="#/shop">Continue shopping</a></div>'}
+function about(){return '<div class="pg"><h1>We find products that fix real problems.</h1><p class="lead">ZeroxCart is built for people who want useful things without the guesswork. We pick what is trending, check that it works, and deliver it free.</p></div><section><div class="vals"><div class="v"><h3>Problem first</h3><p>Every product solves a clear everyday problem.</p></div><div class="v"><h3>Checked before listing</h3><p>We list only products people love that match the photos.</p></div><div class="v"><h3>Easy and risk free</h3><p>Free shipping, cash on delivery and 7-day returns.</p></div></div></section><section><h2>Our story</h2><p class="lead" style="color:var(--mute);max-width:62ch">Good products are hard to find among thousands of options. Our goal is simple: bring the best trending products to one clean store, at fair prices, with a buying experience you can trust. Add your own founder story here.</p></section>'}
+function contact(){return '<section><h2>Contact us</h2><div class="contact"><div class="box"><label for="cn">Your name</label><input id="cn" autocomplete="name"><label for="ce" style="margin-top:12px">Email or phone</label><input id="ce"><label for="cm" style="margin-top:12px">How can we help?</label><textarea id="cm" rows="4"></textarea><button class="btn full" onclick="$(\'cok\').style.display=\'block\'">Send message</button><p id="cok" style="display:none;color:var(--cyan);margin-top:12px;text-align:center">Message sent. We reply within 24 hours.</p></div><div class="box info2"><p><b>Email</b><span>support@yourstore.com</span></p><p><b>WhatsApp</b><span>+00 00000 00000</span></p><p><b>Support hours</b><span>Monday to Saturday, 10 am to 7 pm</span></p></div></div></section><section><h2>Common questions</h2><details open><summary>Is shipping really free?</summary><p>Yes. Shipping is free on every order, with no minimum.</p></details><details><summary>Can I pay on delivery?</summary><p>Yes. Cash on delivery is available at checkout.</p></details><details><summary>What is the return policy?</summary><p>You can return a product within 7 days of delivery.</p></details><details><summary>How long does delivery take?</summary><p>Most orders arrive in 4 to 7 days.</p></details></section>'}
+function nf(){return '<div class="center"><h1>Page not found</h1><p>This page does not exist.</p><a class="btn" href="#/">Back to home</a></div>'}
+function route(){var h=(location.hash||"#/").slice(1),s=h.split("/"),k=s[1]||"home",v;
+if(k=="home")v=home();else if(k=="shop")v=shop();else if(k=="product")v=product(s[2]);else if(k=="cart")v=cartv();else if(k=="about")v=about();else if(k=="contact")v=contact();else v=nf();
+app.innerHTML=v;items();window.scrollTo(0,0);
+document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.dataset.r==k)});
+document.title=(k=="home"?"ZeroxCart":"ZeroxCart | "+(k=="product"&&pr(s[2])?pr(s[2]).n:k))}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
